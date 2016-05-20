@@ -7,6 +7,6 @@ Programų sistemų inžinerija V2
 **=====PRIORITY======**
 - Dokumentas
     * [X] Peržiūrėti užduotis (ar atitinka sekas)
-    * [ ] Atsekamumo matricos
+    * [x] Atsekamumo matricos
     * [X] Techninė architektūra
     * [X] Testavimo scenarijai 
