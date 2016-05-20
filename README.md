@@ -3,7 +3,7 @@ Programų sistemų inžinerija V2
 
 ## Numatomi darbai
 - [ ] Prototipas 
-<font color="red">=====PRIORITY======</font>
+*=====PRIORITY======*
 - Dokumentas
     * [ ] Peržiūrėti užduotis (ar atitinka sekas)
     * [ ] Atsekamumo matricos
