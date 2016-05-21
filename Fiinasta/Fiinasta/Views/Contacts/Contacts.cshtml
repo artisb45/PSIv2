@@ -1,0 +1,21 @@
+﻿@model Fiinasta.FiinastaAPI.Contacts
+
+@{
+    ViewBag.Title = "Kontaktai";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <address>
+        @Html.DisplayFor(model => model.Address)
+    </address>
+
+    <address>
+        <strong>Pagalba el. paštu:</strong>   <a href="mailto:@Html.DisplayFor(model => model.E_Mail)">@Html.DisplayFor(model => model.E_Mail)</a><br>
+        <strong>Pagalba telefonu:</strong>   @Html.DisplayFor(model => model.Phone_No_)
+    </address>
+}

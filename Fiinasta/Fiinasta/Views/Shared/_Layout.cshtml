@@ -23,26 +23,27 @@
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                     @if (Session["user"] != null)
                     {
+                        <li>@Html.ActionLink("Išlaidos/Pajamos", "SpendingsIncome", "SpendingsIncome")</li>
                         <li>@Html.ActionLink("Apie mus", "About", "Home")</li>
-                        <li>@Html.ActionLink("Kontaktai", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Kontaktai", "Run", "Contacts")</li>
                     }
                     else
                     {
                         <li>@Html.ActionLink("Apie mus", "About", "Home")</li>
-                        <li>@Html.ActionLink("Kontaktai", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Kontaktai", "Run", "Contacts")</li>
                     }
 
                 </ul>
                 <ul class="nav navbar-nav pull-right">   
                     @if (Session["user"] != null)
                     {
-                        <li>@Html.ActionLink("Labas, "+Session["user"].ToString(), "SignUp", "Home")</li>
+                        <li>@Html.ActionLink("Labas, "+Session["welcome"].ToString(), "Index", "Home")</li>
                         <li>@Html.ActionLink("Atsijugti", "Logoff", "User")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Registruotis", "SignUp", "Home")</li>
-                        <li>@Html.ActionLink("Prisijungti", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Registruotis", "Register", "User")</li>
+                        <li>@Html.ActionLink("Prisijungti", "Login", "User")</li>
                     }                    
                 </ul>
             </div>

@@ -29,11 +29,7 @@ namespace Fiinasta.Controllers
 
         public ActionResult Login()
         {
-            return View();
-        }
-
-        public ActionResult SignUp()
-        {
+            
             return View();
         }
     }

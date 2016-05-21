@@ -38,3 +38,43 @@ c:\users\abonckus\documents\visual studio 2015\Projects\Fiinasta\Fiinasta\bin\Ne
 c:\users\abonckus\documents\visual studio 2015\Projects\Fiinasta\Fiinasta\obj\Debug\Fiinasta.csprojResolveAssemblyReference.cache
 c:\users\abonckus\documents\visual studio 2015\Projects\Fiinasta\Fiinasta\obj\Debug\Fiinasta.dll
 c:\users\abonckus\documents\visual studio 2015\Projects\Fiinasta\Fiinasta\obj\Debug\Fiinasta.pdb
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\csc.exe
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\System.Collections.Immutable.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\System.Reflection.Metadata.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\vbc.exe
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\VBCSCompiler.exe
+D:\PSIv2\Fiinasta\Fiinasta\bin\roslyn\VBCSCompiler.exe.config
+D:\PSIv2\Fiinasta\Fiinasta\bin\Fiinasta.dll.config
+D:\PSIv2\Fiinasta\Fiinasta\bin\Fiinasta.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\Fiinasta.pdb
+D:\PSIv2\Fiinasta\Fiinasta\bin\Antlr3.Runtime.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\Microsoft.Web.Infrastructure.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\Newtonsoft.Json.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Helpers.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Mvc.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Optimization.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Razor.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.Deployment.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.Razor.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\WebGrease.dll
+D:\PSIv2\Fiinasta\Fiinasta\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Helpers.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Mvc.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Optimization.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.Razor.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.Deployment.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\System.Web.WebPages.Razor.xml
+D:\PSIv2\Fiinasta\Fiinasta\bin\Antlr3.Runtime.pdb
+D:\PSIv2\Fiinasta\Fiinasta\bin\Newtonsoft.Json.xml
+D:\PSIv2\Fiinasta\Fiinasta\obj\Debug\Fiinasta.dll
+D:\PSIv2\Fiinasta\Fiinasta\obj\Debug\Fiinasta.pdb
+D:\PSIv2\Fiinasta\Fiinasta\obj\Debug\Fiinasta.csprojResolveAssemblyReference.cache
