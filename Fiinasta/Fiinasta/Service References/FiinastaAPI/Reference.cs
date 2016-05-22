@@ -391,10 +391,16 @@ namespace Fiinasta.FiinastaAPI {
         System.Threading.Tasks.Task AddSpendingsAsync(Fiinasta.FiinastaAPI.Spendings spendings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetSpendings", ReplyAction="http://tempuri.org/IFiinastaAPI/GetSpendingsResponse")]
-        Fiinasta.FiinastaAPI.Spendings[] GetSpendings(string period);
+        Fiinasta.FiinastaAPI.Spendings[] GetSpendings(string period, Fiinasta.FiinastaAPI.Users user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetSpendings", ReplyAction="http://tempuri.org/IFiinastaAPI/GetSpendingsResponse")]
-        System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> GetSpendingsAsync(string period);
+        System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> GetSpendingsAsync(string period, Fiinasta.FiinastaAPI.Users user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetCategories", ReplyAction="http://tempuri.org/IFiinastaAPI/GetCategoriesResponse")]
+        string[] GetCategories();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetCategories", ReplyAction="http://tempuri.org/IFiinastaAPI/GetCategoriesResponse")]
+        System.Threading.Tasks.Task<string[]> GetCategoriesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -464,12 +470,20 @@ namespace Fiinasta.FiinastaAPI {
             return base.Channel.AddSpendingsAsync(spendings);
         }
         
-        public Fiinasta.FiinastaAPI.Spendings[] GetSpendings(string period) {
-            return base.Channel.GetSpendings(period);
+        public Fiinasta.FiinastaAPI.Spendings[] GetSpendings(string period, Fiinasta.FiinastaAPI.Users user) {
+            return base.Channel.GetSpendings(period, user);
         }
         
-        public System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> GetSpendingsAsync(string period) {
-            return base.Channel.GetSpendingsAsync(period);
+        public System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> GetSpendingsAsync(string period, Fiinasta.FiinastaAPI.Users user) {
+            return base.Channel.GetSpendingsAsync(period, user);
+        }
+        
+        public string[] GetCategories() {
+            return base.Channel.GetCategories();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetCategoriesAsync() {
+            return base.Channel.GetCategoriesAsync();
         }
     }
 }

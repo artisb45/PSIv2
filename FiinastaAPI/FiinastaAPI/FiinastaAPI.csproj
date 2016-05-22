@@ -89,6 +89,9 @@
       <DependentUpon>FiinastaAPI.svc</DependentUpon>
     </Compile>
     <Compile Include="IFiinastaAPI.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>FiinastaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Contacts.cs">
       <DependentUpon>FiinastaModel.tt</DependentUpon>
     </Compile>

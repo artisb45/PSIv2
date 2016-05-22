@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="FiinastaDBModel.Users" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="FiinastaDBModel.Contacts" Width="1.5" PointX="2.25" PointY="0.5" />
         <EntityTypeShape EntityType="FiinastaDBModel.Spendings" Width="1.5" PointX="4.375" PointY="0.5" />
+        <EntityTypeShape EntityType="FiinastaDBModel.Category" Width="1.5" PointX="6.25" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

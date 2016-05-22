@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:49571/FiinastaAPI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:49571/FiinastaAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:49571/FiinastaAPI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FiinastaAPI.Models" />
+      <xsd:import schemaLocation="http://localhost:49571/FiinastaAPI.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IFiinastaAPI_Register_InputMessage">
@@ -43,6 +44,12 @@
   <wsdl:message name="IFiinastaAPI_GetSpendings_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSpendingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IFiinastaAPI_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IFiinastaAPI_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFiinastaAPI">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IFiinastaAPI/Register" message="tns:IFiinastaAPI_Register_InputMessage" />
@@ -67,6 +74,10 @@
     <wsdl:operation name="GetSpendings">
       <wsdl:input wsaw:Action="http://tempuri.org/IFiinastaAPI/GetSpendings" message="tns:IFiinastaAPI_GetSpendings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFiinastaAPI/GetSpendingsResponse" message="tns:IFiinastaAPI_GetSpendings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFiinastaAPI/GetCategories" message="tns:IFiinastaAPI_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFiinastaAPI/GetCategoriesResponse" message="tns:IFiinastaAPI_GetCategories_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFiinastaAPI" type="tns:IFiinastaAPI">
@@ -118,6 +129,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetSpendings">
       <soap:operation soapAction="http://tempuri.org/IFiinastaAPI/GetSpendings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IFiinastaAPI/GetCategories" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -25,6 +25,8 @@ namespace FiinastaAPI
         [OperationContract]
         void AddSpendings(Spendings spendings);
         [OperationContract]
-        List<Spendings> GetSpendings(string period);       
+        List<Spendings> GetSpendings(string period, Users user);
+        [OperationContract]
+        List<string> GetCategories();   
     }
 }

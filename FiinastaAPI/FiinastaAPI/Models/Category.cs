@@ -12,11 +12,11 @@ namespace FiinastaAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Contacts
+    public partial class Category
     {
-        public int ID { get; set; }
-        public string E_Mail { get; set; }
-        public string Address { get; set; }
-        public string Phone_No_ { get; set; }
+        public string Name { get; set; }
+        public Nullable<bool> For_Spendings { get; set; }
+        public Nullable<bool> For_Income { get; set; }
+        public string Category_Filter { get; set; }
     }
 }

@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:49571/FiinastaAPI.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="FiinastaAPI2.xsd" MetadataType="Schema" ID="cf2b7252-05e5-4a06-8808-c34a8bb02ba4" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?xsd=xsd2" />
     <MetadataFile FileName="FiinastaAPI.xsd" MetadataType="Schema" ID="55a40686-7cc0-413d-aeb4-7335860bdd53" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?xsd=xsd0" />
+    <MetadataFile FileName="FiinastaAPI3.xsd" MetadataType="Schema" ID="2e1c6f21-9213-4269-a208-6233f562ff13" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?xsd=xsd3" />
     <MetadataFile FileName="FiinastaAPI1.xsd" MetadataType="Schema" ID="5db966a1-53ab-486d-b71f-3be25a76b705" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?xsd=xsd1" />
     <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="3ad8c010-e35c-4b99-ac21-0cdc8f6d10a7" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?wsdl" />
     <MetadataFile FileName="FiinastaAPI.disco" MetadataType="Disco" ID="16a79bad-19b2-4ffb-bf8f-8488102f2ca9" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?disco" />
-    <MetadataFile FileName="FiinastaAPI2.xsd" MetadataType="Schema" ID="cf2b7252-05e5-4a06-8808-c34a8bb02ba4" SourceId="1" SourceUrl="http://localhost:49571/FiinastaAPI.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

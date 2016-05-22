@@ -125,6 +125,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpendingsIncomeController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,6 +170,9 @@
     <None Include="Service References\FiinastaAPI\FiinastaAPI.disco" />
     <None Include="Service References\FiinastaAPI\configuration91.svcinfo" />
     <None Include="Service References\FiinastaAPI\configuration.svcinfo" />
+    <None Include="Service References\FiinastaAPI\FiinastaAPI3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\FiinastaAPI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -200,6 +204,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\SpendingsIncome\SpendingsIncome.cshtml" />
+    <Content Include="Views\Statistics\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

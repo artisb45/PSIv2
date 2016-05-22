@@ -11,23 +11,15 @@ namespace FiinastaAPI.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    [DataContract]
+    
     public partial class Spendings
     {
-        [DataMember]
         public int UserID { get; set; }
-        [DataMember]
         public int Entry_No_ { get; set; }
-        [DataMember]
         public double Amount { get; set; }
-        [DataMember]
         public string Category { get; set; }
-        [DataMember]
         public System.DateTime Date { get; set; }
-        [DataMember]
         public string Comment { get; set; }
-        [DataMember]
         public string Check_Picture { get; set; }
     }
 }

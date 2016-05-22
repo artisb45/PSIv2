@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Statistika";
+}
+
+<h2>Statistika</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <form>
+            <div class="form-group">
+                <label class="control-label col-md-2">Nuo</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="date" id="date1" name="periodFrom" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Iki</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="date" id="date2" name="periodTo" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Nustatyti" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
+    if (ViewBag.Period != null)
+    {
+        <label class="text-info">@ViewBag.Period</label>
+    }
+    <br />
+    <label class="control-label col-md-2">Vidutinės pajamos</label>
+    <label class="text-info col-md-10">0</label>
+    <label class="control-label col-md-2">Vidutinės išlaidos</label>
+    <label class="text-info col-md-10">@ViewBag.AvgSpendings</label>
+    <br />
+    <hr />
+}
+<script type='text/javascript'>
+    function navigate(target){
+        //Grab your values
+        var date1 = document.getElementById('date1').value;
+        var date2 = document.getElementById('date2').value;
+
+        //Perform your navigation
+        window.location.href = target + '?periodFrom=' + date1 + '&periodTo=' + date2;
+    }
+</script>

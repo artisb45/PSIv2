@@ -45,12 +45,19 @@ namespace FiinastaAPI
             }
         }
 
-        public List<Spendings> GetSpendings(string period)
+        public List<Spendings> GetSpendings(string period, Users user)
         {
-            var dates = period.Split('-');
+            var dates = period.Split('_');
             using (FiinastaDBEntities db = new FiinastaDBEntities())
             {
-                return (from s in db.Spendings where s.Date >= DateTime.Parse(dates[0]) && s.Date <= DateTime.Parse(dates[1]) select s).ToList();
+                if(period != "")
+                {
+                    var d1 = DateTime.Parse(dates[0]);
+                    var d2 = DateTime.Parse(dates[1]);
+                    return (from s in db.Spendings where s.Date >= d1 && s.Date <= d2 where s.UserID == user.ID select s).ToList();
+                }
+                else
+                    return (from s in db.Spendings where s.UserID == user.ID select s).ToList();
             }
         }
 
@@ -83,6 +90,14 @@ namespace FiinastaAPI
                 {
                     throw e;
                 }                
+            }
+        }
+
+        public List<string> GetCategories()
+        {
+            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            {
+                return (from c in db.Category select c.Name).ToList();
             }
         }
     }

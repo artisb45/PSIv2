@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FiinastaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="For Spendings" Type="bit" />
+          <Property Name="For Income" Type="bit" />
+          <Property Name="Category Filter" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Contacts">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,7 +29,7 @@
             <PropertyRef Name="Entry No." />
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="Entry No." Type="int" Nullable="false" />
+          <Property Name="Entry No." Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Amount" Type="float" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
@@ -38,6 +47,7 @@
           <Property Name="Last Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="FiinastaDBModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Spendings" EntityType="Self.Spendings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -50,6 +60,7 @@
           <EntitySet Name="Users" EntityType="FiinastaDBModel.Users" />
           <EntitySet Name="Contacts" EntityType="FiinastaDBModel.Contacts" />
           <EntitySet Name="Spendings" EntityType="FiinastaDBModel.Spendings" />
+          <EntitySet Name="Category" EntityType="FiinastaDBModel.Category" />
         </EntityContainer>
         <EntityType Name="Users">
           <Key>
@@ -82,6 +93,15 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Check_Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="For_Spendings" Type="Boolean" />
+          <Property Name="For_Income" Type="Boolean" />
+          <Property Name="Category_Filter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -120,6 +140,16 @@
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Entry_No_" ColumnName="Entry No." />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="FiinastaDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_Filter" ColumnName="Category Filter" />
+                <ScalarProperty Name="For_Income" ColumnName="For Income" />
+                <ScalarProperty Name="For_Spendings" ColumnName="For Spendings" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
