@@ -20,6 +20,10 @@ namespace Fiinasta.Controllers
                     entries = client.GetSpendings("", Session["user"] as Users).ToList();
                     ViewBag.AvgSpendings = (entries.Sum(e => e.Amount) / entries.Count()).ToString();
                 }
+                else
+                {
+                    ViewBag.Error = "NOENTRIES";
+                }
             }
             return View();
         }
@@ -35,6 +39,10 @@ namespace Fiinasta.Controllers
                 {
                     entries = client.GetSpendings(periodFrom.ToString("yyyy-MM-dd") + "_"+ periodTo.ToString("yyyy-MM-dd"), Session["user"] as Users).ToList();
                     ViewBag.AvgSpendings = (entries.Sum(e => e.Amount) / entries.Count()).ToString();
+                }
+                else
+                {
+                    ViewBag.Error = "NOENTRIES";
                 }
                 ModelState.Clear();
             }

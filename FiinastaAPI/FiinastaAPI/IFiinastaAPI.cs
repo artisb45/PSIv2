@@ -31,5 +31,7 @@ namespace FiinastaAPI
 
         [OperationContract]
         List<Spendings> Search(string searchText, Users user);
+        [OperationContract]
+        SystemMessage GetMessageByID(string code);
     }
 }

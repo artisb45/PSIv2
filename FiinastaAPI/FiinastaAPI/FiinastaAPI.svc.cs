@@ -61,12 +61,19 @@ namespace FiinastaAPI
         {
             using (var db = new FiinastaDBEntities())
             {
-                var temp = db.Users.First(u => u.E_Mail == user.E_Mail && u.Password == user.Password);
-                if (temp != null)
+                try
                 {
-                    return temp;
+                    var temp = db.Users.First(u => u.E_Mail == user.E_Mail && u.Password == user.Password);
+                    if (temp != null)
+                    {
+                        return temp;
+                    }
                 }
-                throw new ArgumentException("Neteisingas el. paštas arba slaptažodis!");
+                catch(Exception e)
+                {
+                    throw new ArgumentException("Neteisingas el. paštas arba slaptažodis!");
+                }
+                return null;                     
             }
         }
 
@@ -112,6 +119,14 @@ namespace FiinastaAPI
                     i++;
                 }
                 return selectedList;
+            }
+        }
+
+        SystemMessage IFiinastaAPI.GetMessageByID(string code)
+        {
+            using (var db = new FiinastaDBEntities())
+            {
+                return db.SystemMessage.First(m => m.Code == code);
             }
         }
     }

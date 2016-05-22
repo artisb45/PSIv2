@@ -113,6 +113,9 @@
     <Compile Include="Models\Spendings.cs">
       <DependentUpon>FiinastaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SystemMessage.cs">
+      <DependentUpon>FiinastaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Users.cs">
       <DependentUpon>FiinastaModel.tt</DependentUpon>
     </Compile>

@@ -11,12 +11,17 @@ namespace FiinastaAPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+    [DataContract]
     public partial class Contacts
     {
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string E_Mail { get; set; }
+        [DataMember]
         public string Address { get; set; }
+        [DataMember]
         public string Phone_No_ { get; set; }
     }
 }

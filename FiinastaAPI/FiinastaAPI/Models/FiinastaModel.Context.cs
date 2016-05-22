@@ -29,5 +29,6 @@ namespace FiinastaAPI.Models
         public virtual DbSet<Contacts> Contacts { get; set; }
         public virtual DbSet<Spendings> Spendings { get; set; }
         public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<SystemMessage> SystemMessage { get; set; }
     }
 }

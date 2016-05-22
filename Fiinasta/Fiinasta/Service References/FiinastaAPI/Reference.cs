@@ -11,8 +11,8 @@
 namespace Fiinasta.FiinastaAPI {
     using System.Runtime.Serialization;
     using System;
-    
-    
+    using System.ComponentModel.DataAnnotations;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/FiinastaAPI.Models")]
@@ -46,7 +46,10 @@ namespace Fiinasta.FiinastaAPI {
                 this.extensionDataField = value;
             }
         }
-        
+
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",
+        ErrorMessage = "Please enter correct email address")]
+        [Required(ErrorMessage = "Būtina įrašyti el. paštą!")]
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string E_Mail {
             get {
@@ -98,7 +101,9 @@ namespace Fiinasta.FiinastaAPI {
                 }
             }
         }
-        
+
+        [Required(ErrorMessage = "Būtina įvesti slaptažodį!")]
+        [DataType(DataType.Password)]
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Password {
             get {
@@ -254,7 +259,8 @@ namespace Fiinasta.FiinastaAPI {
                 this.extensionDataField = value;
             }
         }
-        
+
+        [Required(ErrorMessage = "Būtina įvesti sumą!")]
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double Amount {
             get {
@@ -306,7 +312,9 @@ namespace Fiinasta.FiinastaAPI {
                 }
             }
         }
-        
+
+        [Required(ErrorMessage = "Būtina pasirinkti datą!")]
+        [DataType(DataType.Date)]
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime Date {
             get {
@@ -342,6 +350,67 @@ namespace Fiinasta.FiinastaAPI {
                 if ((this.UserIDField.Equals(value) != true)) {
                     this.UserIDField = value;
                     this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SystemMessage", Namespace="http://schemas.datacontract.org/2004/07/FiinastaAPI.Models")]
+    [System.SerializableAttribute()]
+    public partial class SystemMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
                 }
             }
         }
@@ -401,6 +470,18 @@ namespace Fiinasta.FiinastaAPI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetCategories", ReplyAction="http://tempuri.org/IFiinastaAPI/GetCategoriesResponse")]
         System.Threading.Tasks.Task<string[]> GetCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/Search", ReplyAction="http://tempuri.org/IFiinastaAPI/SearchResponse")]
+        Fiinasta.FiinastaAPI.Spendings[] Search(string searchText, Fiinasta.FiinastaAPI.Users user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/Search", ReplyAction="http://tempuri.org/IFiinastaAPI/SearchResponse")]
+        System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> SearchAsync(string searchText, Fiinasta.FiinastaAPI.Users user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetMessageByID", ReplyAction="http://tempuri.org/IFiinastaAPI/GetMessageByIDResponse")]
+        Fiinasta.FiinastaAPI.SystemMessage GetMessageByID(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFiinastaAPI/GetMessageByID", ReplyAction="http://tempuri.org/IFiinastaAPI/GetMessageByIDResponse")]
+        System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.SystemMessage> GetMessageByIDAsync(string code);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -484,6 +565,22 @@ namespace Fiinasta.FiinastaAPI {
         
         public System.Threading.Tasks.Task<string[]> GetCategoriesAsync() {
             return base.Channel.GetCategoriesAsync();
+        }
+        
+        public Fiinasta.FiinastaAPI.Spendings[] Search(string searchText, Fiinasta.FiinastaAPI.Users user) {
+            return base.Channel.Search(searchText, user);
+        }
+        
+        public System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.Spendings[]> SearchAsync(string searchText, Fiinasta.FiinastaAPI.Users user) {
+            return base.Channel.SearchAsync(searchText, user);
+        }
+        
+        public Fiinasta.FiinastaAPI.SystemMessage GetMessageByID(string code) {
+            return base.Channel.GetMessageByID(code);
+        }
+        
+        public System.Threading.Tasks.Task<Fiinasta.FiinastaAPI.SystemMessage> GetMessageByIDAsync(string code) {
+            return base.Channel.GetMessageByIDAsync(code);
         }
     }
 }

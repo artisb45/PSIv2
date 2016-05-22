@@ -1,0 +1,28 @@
+﻿@model Fiinasta.FiinastaAPI.SystemMessage
+
+@{
+    ViewBag.Title = "Oops. Klaida!";
+}
+
+<div>
+    <h4>Oops. Klaida!</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+</div>

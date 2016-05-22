@@ -13,15 +13,11 @@ namespace FiinastaAPI.Models
     using System.Collections.Generic;
     using System.Runtime.Serialization;
     [DataContract]
-    public partial class Category
+    public partial class SystemMessage
     {
         [DataMember]
-        public string Name { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public Nullable<bool> For_Spendings { get; set; }
-        [DataMember]
-        public Nullable<bool> For_Income { get; set; }
-        [DataMember]
-        public string Category_Filter { get; set; }
+        public string Message { get; set; }
     }
 }

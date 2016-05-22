@@ -37,4 +37,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfSpendings" nillable="true" type="tns:ArrayOfSpendings" />
+  <xs:complexType name="SystemMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemMessage" nillable="true" type="tns:SystemMessage" />
 </xs:schema>

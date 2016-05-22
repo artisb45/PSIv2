@@ -122,8 +122,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BudgetController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SpendingsIncomeController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -167,6 +170,9 @@
     <Content Include="Service References\FiinastaAPI\Fiinasta.FiinastaAPI.Spendings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\FiinastaAPI\Fiinasta.FiinastaAPI.SystemMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\FiinastaAPI\FiinastaAPI.disco" />
     <None Include="Service References\FiinastaAPI\configuration91.svcinfo" />
     <None Include="Service References\FiinastaAPI\configuration.svcinfo" />
@@ -205,6 +211,8 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\SpendingsIncome\SpendingsIncome.cshtml" />
     <Content Include="Views\Statistics\Statistics.cshtml" />
+    <Content Include="Views\Shared\Budget.cshtml" />
+    <Content Include="Views\Error\SystemMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

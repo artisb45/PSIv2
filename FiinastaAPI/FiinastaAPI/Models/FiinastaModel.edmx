@@ -23,6 +23,13 @@
           <Property Name="Address" Type="varchar" MaxLength="50" />
           <Property Name="Phone No." Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="SystemMessage">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Message" Type="text" />
+        </EntityType>
         <EntityType Name="Spendings">
           <Key>
             <PropertyRef Name="UserID" />
@@ -49,6 +56,7 @@
         <EntityContainer Name="FiinastaDBModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemMessage" EntityType="Self.SystemMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Spendings" EntityType="Self.Spendings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -61,6 +69,7 @@
           <EntitySet Name="Contacts" EntityType="FiinastaDBModel.Contacts" />
           <EntitySet Name="Spendings" EntityType="FiinastaDBModel.Spendings" />
           <EntitySet Name="Category" EntityType="FiinastaDBModel.Category" />
+          <EntitySet Name="SystemMessage" EntityType="FiinastaDBModel.SystemMessage" />
         </EntityContainer>
         <EntityType Name="Users">
           <Key>
@@ -102,6 +111,13 @@
           <Property Name="For_Spendings" Type="Boolean" />
           <Property Name="For_Income" Type="Boolean" />
           <Property Name="Category_Filter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SystemMessage">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -150,6 +166,14 @@
                 <ScalarProperty Name="For_Income" ColumnName="For Income" />
                 <ScalarProperty Name="For_Spendings" ColumnName="For Spendings" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemMessage">
+            <EntityTypeMapping TypeName="FiinastaDBModel.SystemMessage">
+              <MappingFragment StoreEntitySet="SystemMessage">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,17 +14,18 @@ namespace Fiinasta.Controllers
         {
             using (FiinastaAPIClient client = new FiinastaAPIClient())
             {
-                return View("Budget", client.GetSpendings("",Session["user"] as Users).ToList());
+                if (client.CheckEntries(Session["user"] as Users))
+                {
+                    ViewBag.Sum = client.GetSpendings("", Session["user"] as Users).Sum(s => s.Amount);
+                    return View("Budget", client.GetSpendings("", Session["user"] as Users).ToList());
+                }                    
+                else
+                {
+                    ViewBag.Error = "NOENTRIES";
+                    return View("Budget");
+                }                    
             }
             
-        }
-        [HttpPost]
-        public void Budget(string criteria)
-        {
-            Url.Action("Run", "Search", new
-            {
-                @criteria = criteria
-            });
         }
     }
 }

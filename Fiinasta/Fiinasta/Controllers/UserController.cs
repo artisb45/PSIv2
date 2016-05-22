@@ -61,9 +61,10 @@ namespace Fiinasta.Controllers
                     Session["welcome"] = temp.First_Name+" "+temp.Last_Name;
                     client.Close();
                 }
-                catch (ArgumentException e)
+                catch (Exception e)
                 {
-                    ViewBag.Message = e.Message;                        
+                    ViewBag.Message = "Neteisingas el. paštas arba slaptažodis";
+                    return View();
                 }                
             }
             return View("Index");
