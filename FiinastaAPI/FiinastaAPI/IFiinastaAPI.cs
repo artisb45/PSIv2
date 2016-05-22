@@ -27,6 +27,9 @@ namespace FiinastaAPI
         [OperationContract]
         List<Spendings> GetSpendings(string period, Users user);
         [OperationContract]
-        List<string> GetCategories();   
+        List<string> GetCategories();
+
+        [OperationContract]
+        List<Spendings> Search(string searchText, Users user);
     }
 }
