@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Fiinasta.FiinastaAPI.Spendings>
+
+@{
+    ViewBag.Title = "Budget";
+}
+
+<h2>Budget</h2>
+
+@using (Html.BeginForm("Run", "Search", FormMethod.Get))
+{
+    <div class="form-inline pull-right">
+        <div class=" form-group">
+            @Html.Label("Paieška", htmlAttributes: new
+            {
+                @class = "control-label col-md-4"
+            })
+            <div class=" col-md-10">
+                <input class="form-control" type="text" id="searchField" name="criteria"/>
+                <input class="btn btn-default" type="submit" value="Ieškoti" />
+                @*@<a href="@Url.Action("Run", "Search")' onclick="navigate(this.href);">
+                    <input class="btn btn-default" type="submit" value="Ieškoti" />
+                </a>*@
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Check_Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Check_Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script type='text/javascript'>
+    function navigate(target) {
+        //Grab your values
+        var searchField = document.getElementById('searchField').value;
+
+        //Perform your navigation
+        window.location.href = target + '?criteria=' + searchField;
+    }
+</script>
