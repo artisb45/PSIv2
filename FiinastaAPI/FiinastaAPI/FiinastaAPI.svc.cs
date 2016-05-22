@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using System.Text.RegularExpressions;
 using FiinastaAPI.Models;
-using System.ServiceModel.Description;
-using System.Threading;
 
 namespace FiinastaAPI
 {
@@ -17,7 +12,7 @@ namespace FiinastaAPI
     {
         public void AddSpendings(Spendings spendings)
         {
-            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
                 db.Spendings.Add(spendings);
                 db.SaveChanges();
@@ -26,7 +21,7 @@ namespace FiinastaAPI
 
         public bool CheckEntries(Users user)
         {
-            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
                 if ((from s in db.Spendings where s.UserID == user.ID select s).Count() != 0)
                 {
@@ -38,7 +33,7 @@ namespace FiinastaAPI
 
         public Contacts GetContacts()
         {
-            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
                 var temp = db.Contacts.First();
                 return temp;
@@ -48,56 +43,75 @@ namespace FiinastaAPI
         public List<Spendings> GetSpendings(string period, Users user)
         {
             var dates = period.Split('_');
-            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
-                if(period != "")
+                if (period != "")
                 {
                     var d1 = DateTime.Parse(dates[0]);
                     var d2 = DateTime.Parse(dates[1]);
-                    return (from s in db.Spendings where s.Date >= d1 && s.Date <= d2 where s.UserID == user.ID select s).ToList();
+                    return
+                        (from s in db.Spendings where s.Date >= d1 && s.Date <= d2 where s.UserID == user.ID select s)
+                            .ToList();
                 }
-                else
-                    return (from s in db.Spendings where s.UserID == user.ID select s).ToList();
+                return (from s in db.Spendings where s.UserID == user.ID select s).ToList();
             }
         }
 
         public Users Login(Users user)
         {
-            using(FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
-                var temp = db.Users.First((u) => u.E_Mail == user.E_Mail && u.Password == user.Password);
-                if(temp != null)
-                {                  
+                var temp = db.Users.First(u => u.E_Mail == user.E_Mail && u.Password == user.Password);
+                if (temp != null)
+                {
                     return temp;
                 }
-                else
-                {
-                    throw new ArgumentException("Neteisingas el. paštas arba slaptažodis!");
-                }
+                throw new ArgumentException("Neteisingas el. paštas arba slaptažodis!");
             }
         }
 
         public void Register(Users user)
         {
-            using(FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
                 try
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw e;
-                }                
+                }
             }
         }
 
         public List<string> GetCategories()
         {
-            using (FiinastaDBEntities db = new FiinastaDBEntities())
+            using (var db = new FiinastaDBEntities())
             {
                 return (from c in db.Category select c.Name).ToList();
+            }
+        }
+
+        public List<Spendings> Search(string searchText, Users user)
+        {
+            using (var db = new FiinastaDBEntities())
+            {
+                var i = 0;
+                var spendingsList = GetSpendings("", user);
+                var sizeList = spendingsList.Count;
+                var selectedList = new List<Spendings>();
+                while (i < sizeList)
+                {
+                    if (Regex.IsMatch(spendingsList[i].Comment, searchText,
+                        RegexOptions.IgnoreCase))
+                    {
+                        selectedList.Add(spendingsList[i]);
+                    }
+                    i++;
+                }
+                return selectedList;
             }
         }
     }
